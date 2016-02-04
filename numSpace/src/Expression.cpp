@@ -20,17 +20,29 @@ Expression::~Expression()
 
     //dtor
 }
-int Expression::pushNumber(Number* a)
+//Printers
+void Expression::listNumbers()
 {
-    if (a != NULL)
+    for(unsigned long i = 0; i< numList.size();i++)
     {
-        numList.push_back(a);
-        return 0;
+        std::cout << i << ": " << numList[i]->getName() << std::endl;
     }
-    else
+}
+void Expression::listOpTree()
+{
+    for(unsigned long i = 0; i< opTree.size();i++)
     {
-        return 1;
+        std::cout << i << ": " << opTree[i]->getOpName() << std::endl;
     }
+}
+
+
+// Setters
+unsigned long Expression::addNumber(std::string _name, unsigned long _ID, bool _isZero)
+{
+    Number * newNumber = new Number (_name,_ID,_isZero);
+    numList.push_back(newNumber);
+    return numList.size() - 1;
 }
 Operation* Expression::addOp(int OpID)
 {
@@ -53,8 +65,8 @@ int Expression::makeSubOp(Operation* parent, Operation* child)
     }
     //NEED TO
     // Check that child is not already a sub Op of parent
-    // Check that parent is not a sub Op of 
-    
+    // Check that parent is not a sub Op of
+
     if(temp && areOpsInTree)
     {
         parent->addChild(child);
@@ -66,5 +78,4 @@ int Expression::makeSubOp(Operation* parent, Operation* child)
         return 1;
     }
     // checking need to be add for parent child loops
-
 }

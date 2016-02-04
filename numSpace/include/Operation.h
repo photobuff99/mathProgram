@@ -10,10 +10,12 @@ class Operation
     public:
         Operation();
         virtual ~Operation();
-        // Getters 
-        int getSubSize(); // wiil get the size of the 
+        // Getters
+        int getSubSize(); // will get the size of the
+        std::string getOpName();
         // Setters / Adders
         void setOpID(int opID);
+        void setOpName(std::string _opName);
         int setupOp(Operation* parent);
         int addChild(Operation* child);
         int setVal(Number* _val); // will set the number value of a null operation number
