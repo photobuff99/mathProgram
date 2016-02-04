@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1454564169 source:/home/user/Desktop/Projects/numSpace/main.cpp
+	<iostream>
+	"Number.h"
+	"Expression.h"
+	"Add.h"
+
+1454560931 /home/user/Desktop/Projects/numSpace/include/Number.h
+	<iostream>
+
+1454560827 source:/home/user/Desktop/Projects/numSpace/src/Number.cpp
+	"Number.h"
+
+1454564291 source:/home/user/Desktop/Projects/numSpace/src/Expression.cpp
+	"Expression.h"
+	<iostream>
+
+1454563034 /home/user/Desktop/Projects/numSpace/include/Expression.h
+	<vector>
+	"Number.h"
+	"Operation.h"
+
+1454562525 /home/user/Desktop/Projects/numSpace/include/Operation.h
+	<iostream>
+	<vector>
+	"Number.h"
+
+1454560490 /home/user/Desktop/Projects/numSpace/include/Add.h
+	<Operation.h>
+
+1454548118 source:/home/user/Desktop/Projects/numSpace/src/Add.cpp
+	"Add.h"
+
+1454564052 source:/home/user/Desktop/Projects/numSpace/src/Operation.cpp
+	"Operation.h"
+
