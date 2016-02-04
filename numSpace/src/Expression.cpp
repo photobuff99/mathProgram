@@ -51,6 +51,9 @@ int Expression::makeSubOp(Operation* parent, Operation* child)
         if(opTree[i] == child)
             areOpsInTree = true;
     }
+    //NEED TO
+    // Check that child is not already a sub Op of parent
+    // Check that parent is not a sub Op of 
     
     if(temp && areOpsInTree)
     {
