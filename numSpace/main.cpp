@@ -10,8 +10,12 @@ using namespace std;
 int main()
 {
     cout << "Hello world!" << endl;
-    Expression *first = new Expression;
-    first->listNumbers();
+    Expression * first = new Expression;
+    Operation* a = first->addOp(0);
+    Operation* b = first->addOp(1);
+    first->makeSubOp(a,b);
+    cout << "go buffs" << endl;
     delete first;
+
     return 0;
 }
