@@ -37,12 +37,31 @@ Operation* Expression::addOp(int OpID)
     Operation* newOp = new Operation;
     opTree.push_back(newOp);
     newOp->setOpID(OpID);
-    return newOp; // newOp is allocated  and add to the opTree
+    return newOp; // newOp is allocated and add to the opTree
 }
 int Expression::makeSubOp(Operation* parent, Operation* child)
 {
+    // Check that the Ops are in the opTree
+    bool areOpsInTree = false;
+    bool temp = false;
+    for(unsigned long i = 0; i < opTree.size();i++)
+    {
+        if(opTree[i] == parent)
+            temp = true;
+        if(opTree[i] == child)
+            areOpsInTree = true;
+    }
+    
+    if(temp && areOpsInTree)
+    {
+        parent->addChild(child);
+        child->setupOp(parent);
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
     // checking need to be add for parent child loops
-    parent->addChild(child);
-    child->setupOp(parent);
-    return 0;
+
 }
