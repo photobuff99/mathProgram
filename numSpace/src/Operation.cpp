@@ -53,9 +53,9 @@ void Operation::setOpName(std::string _opName)
 {
     _opName = opName;
 }
-int Operation::setupOp(Operation* parent)
+int Operation::setUpOp(Operation* _op)
 {
-    upOp = parent;
+    upOp = _op;
     return 0; // no error checking yet
 }
 int Operation::addChild(Operation* child)

@@ -21,33 +21,16 @@ Expression::~Expression()
     //dtor
 }
 // Getters
-void Expression::travOptree(Operation* child)
+int Expression::travOpTree(unsigned long _index)
 {
-    for(unsigned long i = 0; i < child->getSubSize();i++)
+    if(isInTree(_index))
     {
-        if(child->getSubOp(i)->getID() != 0)
-        {
-            travOptree(child->getSubOp(i));
-        }
-        else
-        {
-            std::cout << "number!: ";
-            if(child->getUpOp()!= NULL)
-            {
-                std::cout << "p: " << child->getUpOp()->getOpName();
-            }
-            else
-            {
-                std::cout << "P: TOP";
-            }
-            std::cout <<" C: ";
-            for(unsigned long j = 0; j < child->getSubSize(); i++)
-            {
-                std::cout<< child->getSubOp(j)->getOpName()<< " ";
-            }
-            std::cout << std::endl;
-        }
+        travOpTreeHelper(opTree[_index]);
+        return 0;
     }
+    else
+        return 1;
+
 }
 //Printers
 void Expression::listNumbers()
@@ -77,8 +60,25 @@ unsigned long Expression::addOp(std::string _opName, int _ID)
     opTree.push_back(newOp);
     return opTree.size()-1; // newOp is allocated and add to the opTree
 }
-int Expression::makeSubOp(Operation* parent, Operation* child)
+int Expression::makeSubOp(unsigned long _parent, unsigned long _child) // indexes for parent and child
 {
+    Operation* parent = NULL;
+    Operation* child = NULL;
+
+    if(_parent < opTree.size())
+    {
+        if(_child < opTree.size())
+        {
+            parent = opTree[_parent];
+            child = opTree[_child];
+        }
+        else
+        {
+            std::cout << "makeSubOp: somebody has an index not in opTree";
+            return 0;
+        }
+    }
+
     bool proceed = true;
     if(parent == child)
     {
@@ -92,7 +92,7 @@ int Expression::makeSubOp(Operation* parent, Operation* child)
     if(proceed)
     {
         parent->addChild(child);
-        child->setupOp(parent);
+        child->setUpOp(parent);
         return 0;
     }
     else
@@ -100,4 +100,62 @@ int Expression::makeSubOp(Operation* parent, Operation* child)
         return 1;
     }
     // checking need to be add for parent child loops
+}
+int Expression::setUpOp(unsigned long _index, unsigned long _upOpIndex)
+{
+    if(isInTree(_index))
+    {
+        if(isInTree(_upOpIndex))
+        {
+            opTree[_index]->setUpOp(opTree[_upOpIndex]);
+            return 0;
+        }
+        else
+            return 1;
+    }
+    else
+        return 1;
+}
+// Helpers
+void Expression::travOpTreeHelper(Operation* child)
+{
+    for(unsigned long i = 0; i < child->getSubSize();i++)
+    {
+        if(child->getSubOp(i)->getID() != 0)
+        {
+            travOpTreeHelper(child->getSubOp(i));
+        }
+        else
+        {
+            std::cout << "number!: ";
+            if(child->getUpOp()!= NULL)
+            {
+                std::cout << "p: " << child->getUpOp()->getOpName();
+            }
+            else
+            {
+                std::cout << "P: TOP";
+            }
+            std::cout <<" C: ";
+            for(unsigned long j = 0; j < child->getSubSize(); i++)
+            {
+                std::cout<< child->getSubOp(j)->getOpName()<< " ";
+            }
+            std::cout << std::endl;
+        }
+    }
+}
+bool Expression::isInNum(unsigned long _index)
+{
+    if(_index < numList.size())
+        return true;
+    else
+        return false;
+}
+bool Expression::isInTree(unsigned long _index)
+{
+    if(_index < opTree.size())
+        return true;
+    else
+        return false;
 }

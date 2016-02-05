@@ -22,7 +22,7 @@ class Operation
         // Setters / Adders
         void setOpID(int opID);
         void setOpName(std::string _opName);
-        int setupOp(Operation* parent);
+        int setUpOp(Operation* _op);
         int addChild(Operation* child);
         int setVal(Number* _val); // will set the number value of a null operation number
         // Validators
