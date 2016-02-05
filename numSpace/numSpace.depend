@@ -34,3 +34,75 @@
 1454564052 source:/home/user/Desktop/Projects/numSpace/src/Operation.cpp
 	"Operation.h"
 
+1454623851 source:/home/user/Documents/mathProgram/numSpace/main.cpp
+	<iostream>
+	"Number.h"
+	"Expression.h"
+	"Add.h"
+
+1454624649 /home/user/Documents/mathProgram/numSpace/include/Number.h
+	<iostream>
+
+1454624937 /home/user/Documents/mathProgram/numSpace/include/Expression.h
+	<iostream>
+	<vector>
+	"Number.h"
+	"Operation.h"
+
+1454623813 /home/user/Documents/mathProgram/numSpace/include/Operation.h
+	<iostream>
+	<vector>
+	"Number.h"
+
+1454621938 /home/user/Documents/mathProgram/numSpace/include/Add.h
+	<Operation.h>
+
+1454621938 source:/home/user/Documents/mathProgram/numSpace/src/Add.cpp
+	"Add.h"
+
+1454624590 source:/home/user/Documents/mathProgram/numSpace/src/Number.cpp
+	"Number.h"
+
+1454623865 source:/home/user/Documents/mathProgram/numSpace/src/Operation.cpp
+	"Operation.h"
+
+1454624917 source:/home/user/Documents/mathProgram/numSpace/src/Expression.cpp
+	"Expression.h"
+	<iostream>
+
+1454621938 source:/home/user/Desktop/numSpace/src/Add.cpp
+	"Add.h"
+
+1454621938 /home/user/Desktop/numSpace/include/Add.h
+	<Operation.h>
+
+1454639386 /home/user/Desktop/numSpace/include/Operation.h
+	<iostream>
+	<vector>
+	"Number.h"
+
+1454626260 /home/user/Desktop/numSpace/include/Number.h
+	<iostream>
+
+1454626260 source:/home/user/Desktop/numSpace/src/Number.cpp
+	"Number.h"
+
+1454627977 source:/home/user/Desktop/numSpace/main.cpp
+	<iostream>
+	"Number.h"
+	"Expression.h"
+	"Add.h"
+
+1454639429 /home/user/Desktop/numSpace/include/Expression.h
+	<iostream>
+	<vector>
+	"Number.h"
+	"Operation.h"
+
+1454639455 source:/home/user/Desktop/numSpace/src/Expression.cpp
+	"Expression.h"
+	<iostream>
+
+1454627301 source:/home/user/Desktop/numSpace/src/Operation.cpp
+	"Operation.h"
+
