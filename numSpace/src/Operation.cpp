@@ -45,9 +45,9 @@ Operation* Operation::getUpOp()
     return upOp; // will return NULL values
 }
 //Setters
-void Operation::setOpID(int OpID)
+void Operation::setOpID(int _ID)
 {
-    ID = OpID;
+    ID = _ID;
 }
 void Operation::setOpName(std::string _opName)
 {

@@ -123,6 +123,21 @@ void Expression::travOpTreeHelper(Operation* child)
     {
         if(child->getSubOp(i)->getID() != 0)
         {
+            std::cout << "Operation!: ";
+            if(child->getUpOp()!= NULL)
+            {
+                std::cout << "p: " << child->getUpOp()->getOpName();
+            }
+            else
+            {
+                std::cout << "P: TOP";
+            }
+            std::cout <<" C: ";
+            for(unsigned long j = 0; j < child->getSubSize(); j++)
+            {
+                std::cout<< child->getSubOp(j)->getOpName()<< " ";
+            }
+            std::cout << std::endl;
             travOpTreeHelper(child->getSubOp(i));
         }
         else
@@ -137,7 +152,7 @@ void Expression::travOpTreeHelper(Operation* child)
                 std::cout << "P: TOP";
             }
             std::cout <<" C: ";
-            for(unsigned long j = 0; j < child->getSubSize(); i++)
+            for(unsigned long j = 0; j < child->getSubSize(); j++)
             {
                 std::cout<< child->getSubOp(j)->getOpName()<< " ";
             }
